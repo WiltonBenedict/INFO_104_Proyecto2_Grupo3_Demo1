@@ -97,5 +97,100 @@ namespace INFO_104_Proyecto2_Grupo3.clases
 
             return retorno;
         }
+
+        public static int Agregar(string Correo, string Clave, string Nombre)
+        {
+            int retorno = 0;
+
+            SqlConnection Conn = new SqlConnection();
+            try
+            {
+                using (Conn = DBconn.ObtenerConexion())
+                {
+                    SqlCommand cmd = new SqlCommand("agregarCuenta", Conn)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+                    cmd.Parameters.Add(new SqlParameter("@correo", Correo));
+                    cmd.Parameters.Add(new SqlParameter("@clave", Clave));
+                    cmd.Parameters.Add(new SqlParameter("@nombre", Nombre));
+
+                    retorno = cmd.ExecuteNonQuery();
+                }
+            }
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                retorno = -1;
+            }
+            finally
+            {
+                Conn.Close();
+            }
+
+            return retorno;
+        }
+
+        public static int Borrar(int Id)
+        {
+            int retorno = 0;
+
+            SqlConnection Conn = new SqlConnection();
+            try
+            {
+                using (Conn = DBconn.ObtenerConexion())
+                {
+                    SqlCommand cmd = new SqlCommand("borrarCuenta", Conn)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+                    cmd.Parameters.Add(new SqlParameter("@id", Id));
+
+                    retorno = cmd.ExecuteNonQuery();
+                }
+            }
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                retorno = -1;
+            }
+            finally
+            {
+                Conn.Close();
+            }
+
+            return retorno;
+        }
+
+        public static int Modificar(int Id, string Correo, string Clave, string Nombre)
+        {
+            int retorno = 0;
+
+            SqlConnection Conn = new SqlConnection();
+            try
+            {
+                using (Conn = DBconn.ObtenerConexion())
+                {
+                    SqlCommand cmd = new SqlCommand("modificarCuenta", Conn)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+                    cmd.Parameters.Add(new SqlParameter("@id", Id));
+                    cmd.Parameters.Add(new SqlParameter("@correo", Correo));
+                    cmd.Parameters.Add(new SqlParameter("@clave", Clave));
+                    cmd.Parameters.Add(new SqlParameter("@nombre", Nombre));
+
+                    retorno = cmd.ExecuteNonQuery();
+                }
+            }
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                retorno = -1;
+            }
+            finally
+            {
+                Conn.Close();
+            }
+
+            return retorno;
+        }
     }
 }

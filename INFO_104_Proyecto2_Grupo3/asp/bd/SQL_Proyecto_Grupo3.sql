@@ -92,6 +92,8 @@ CREATE TABLE cuentaRol
 )
 GO
 
+/*               PROCEDIMIENTOS TABLA CUENTAS Y ROLES            */
+
 GO
 CREATE PROCEDURE agregarCuenta
 @correo nvarchar(50),
@@ -110,11 +112,11 @@ CREATE PROCEDURE borrarCuenta
             DELETE cuentas WHERE id = @id
         END
 GO
-
+/* ARREGLAR*/
 CREATE PROCEDURE modificarCuenta
 @id int,
-@correo nvarchar(100),
-@clave nvarchar(100),
+@correo nvarchar(50),
+@clave nvarchar(50),
 @nombre nvarchar(50)
     AS
         BEGIN
@@ -185,6 +187,45 @@ CREATE PROCEDURE modificarCuentaRol
             UPDATE cuentaRol SET idCuenta = @idCuenta,idRol = @idRol, fecha = @fecha WHERE id = @id
         END
 GO
+
+/*               PROCEDIMIENTOS TABLA USUARIOS            */
+
+GO
+CREATE PROCEDURE agregarusuario
+@nombre nvarchar(100),
+@correoElectronico nvarchar(100),
+@telefono nvarchar(50)
+    AS
+        BEGIN
+            INSERT INTO usuarios (nombre,correoElectronico,telefono) VALUES (@nombre,@correoElectronico,@telefono)
+        END
+GO
+CREATE PROCEDURE borrarusuario
+@usuarioID int
+    AS 
+        BEGIN
+            DELETE usuarios WHERE usuarioID = @usuarioID
+        END
+GO
+CREATE PROCEDURE consultarusuario
+@usuarioID int
+    AS 
+        BEGIN
+            SELECT * FROM usuarios WHERE usuarioID = @usuarioID
+        END
+GO
+CREATE PROCEDURE modificarusuario
+@usuarioID int,
+@nombre nvarchar(100),
+@correoElectronico nvarchar(100),
+@telefono nvarchar(50)
+    AS
+        BEGIN
+            UPDATE usuarios SET nombre = @nombre, correoElectronico = @correoElectronico, telefono = @telefono WHERE usuarioID = @usuarioID
+        END
+GO
+
+
 
 GO
 CREATE PROCEDURE agregartecnico

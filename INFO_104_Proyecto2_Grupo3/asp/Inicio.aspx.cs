@@ -15,7 +15,7 @@ namespace INFO_104_Proyecto2_Grupo3.asp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lNombre.Text = Cuentas.GetNombre();
+            lNombre.Text = clases.Cuentas.GetNombre();
         }
  
     }

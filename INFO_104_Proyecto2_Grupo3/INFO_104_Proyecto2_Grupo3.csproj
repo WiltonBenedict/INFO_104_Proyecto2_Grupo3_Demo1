@@ -70,6 +70,8 @@
     <Content Include="asp\Acceso.aspx" />
     <Content Include="asp\Asignaciones.aspx" />
     <Content Include="asp\bd\SQL_Proyecto_Grupo3.sql" />
+    <Content Include="asp\CuentaRoles.aspx" />
+    <Content Include="asp\Cuentas.aspx" />
     <Content Include="asp\Detalles.aspx" />
     <Content Include="asp\Equipos.aspx" />
     <Content Include="asp\imagenes\bd_imagen.png" />
@@ -87,9 +89,11 @@
     <Content Include="asp\css\estiloNav.css" />
     <Content Include="asp\css\estiloNavInicio.css" />
     <Content Include="asp\css\Wave.svg" />
+    <Content Include="asp\InicioCuenta.aspx" />
     <Content Include="asp\InicioPersonal.aspx" />
     <Content Include="asp\InicioReparo.aspx" />
     <Content Include="asp\Reparos.aspx" />
+    <Content Include="asp\Roles.aspx" />
     <Content Include="asp\Tecnicos.aspx" />
     <Content Include="asp\Usuarios.aspx" />
     <Content Include="Web.config" />
@@ -108,6 +112,20 @@
     </Compile>
     <Compile Include="asp\Asignaciones.aspx.designer.cs">
       <DependentUpon>Asignaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="asp\CuentaRoles.aspx.cs">
+      <DependentUpon>CuentaRoles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="asp\CuentaRoles.aspx.designer.cs">
+      <DependentUpon>CuentaRoles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="asp\Cuentas.aspx.cs">
+      <DependentUpon>Cuentas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="asp\Cuentas.aspx.designer.cs">
+      <DependentUpon>Cuentas.aspx</DependentUpon>
     </Compile>
     <Compile Include="asp\Detalles.aspx.cs">
       <DependentUpon>Detalles.aspx</DependentUpon>
@@ -130,6 +148,13 @@
     <Compile Include="asp\Inicio.aspx.designer.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
     </Compile>
+    <Compile Include="asp\InicioCuenta.aspx.cs">
+      <DependentUpon>InicioCuenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="asp\InicioCuenta.aspx.designer.cs">
+      <DependentUpon>InicioCuenta.aspx</DependentUpon>
+    </Compile>
     <Compile Include="asp\InicioPersonal.aspx.cs">
       <DependentUpon>InicioPersonal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -151,6 +176,13 @@
     <Compile Include="asp\Reparos.aspx.designer.cs">
       <DependentUpon>Reparos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="asp\Roles.aspx.cs">
+      <DependentUpon>Roles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="asp\Roles.aspx.designer.cs">
+      <DependentUpon>Roles.aspx</DependentUpon>
+    </Compile>
     <Compile Include="asp\Tecnicos.aspx.cs">
       <DependentUpon>Tecnicos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -166,11 +198,13 @@
       <DependentUpon>Usuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="clases\Asignacion.cs" />
+    <Compile Include="clases\CuentaRol.cs" />
     <Compile Include="clases\Cuentas.cs" />
     <Compile Include="clases\DBconn.cs" />
     <Compile Include="clases\Detalle.cs" />
     <Compile Include="clases\Equipo.cs" />
     <Compile Include="clases\Reparo.cs" />
+    <Compile Include="clases\Rol.cs" />
     <Compile Include="clases\Tecnico.cs" />
     <Compile Include="clases\Usuario.cs" />
     <Compile Include="menuCuenta.Master.cs">
