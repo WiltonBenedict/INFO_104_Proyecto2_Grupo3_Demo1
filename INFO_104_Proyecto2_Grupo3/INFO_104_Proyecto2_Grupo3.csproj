@@ -70,10 +70,12 @@
     <Content Include="asp\Acceso.aspx" />
     <Content Include="asp\Asignaciones.aspx" />
     <Content Include="asp\bd\SQL_Proyecto_Grupo3.sql" />
+    <Content Include="asp\css\estiloNavFiltros.css" />
     <Content Include="asp\CuentaRoles.aspx" />
     <Content Include="asp\Cuentas.aspx" />
     <Content Include="asp\Detalles.aspx" />
     <Content Include="asp\Equipos.aspx" />
+    <Content Include="asp\Filtro.aspx" />
     <Content Include="asp\imagenes\bd_imagen.png" />
     <Content Include="asp\imagenes\pc_imagen.png" />
     <Content Include="asp\imagenes\tecnico_imagen.png" />
@@ -140,6 +142,13 @@
     </Compile>
     <Compile Include="asp\Equipos.aspx.designer.cs">
       <DependentUpon>Equipos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="asp\Filtro.aspx.cs">
+      <DependentUpon>Filtro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="asp\Filtro.aspx.designer.cs">
+      <DependentUpon>Filtro.aspx</DependentUpon>
     </Compile>
     <Compile Include="asp\Inicio.aspx.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>

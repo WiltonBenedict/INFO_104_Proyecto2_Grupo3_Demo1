@@ -31,6 +31,7 @@
       <li><a href="InicioPersonal.aspx">Personal y Equipos</a></li>
       <li><a href="InicioReparo.aspx">Reparaciones</a></li>
       <li><a href="InicioCuenta.aspx">Cuentas</a></li>
+        <li><a href="Filtro.aspx">Busqueda por Filtro</a></li>
       <li><a href="Acceso.aspx">Salida</a></li>
     </ul>
     <header>

@@ -387,3 +387,76 @@ CREATE PROCEDURE modificarAsignacion
 			UPDATE asignaciones SET reparacionID = @reparacionID, tecnicoID = @tecnicoID, FechaAsignacion = @FechaAsignacion WHERE asignacionID = @asignacionID
 		END
 GO
+
+/*               PROCEDIMIENTOS INNER JOIN          */
+CREATE TABLE filtros
+(
+    filtro nvarchar(50)
+)
+GO
+
+
+GO
+CREATE PROCEDURE filtro1
+@codigo int
+AS
+	BEGIN
+		SELECT U.nombre, E.tipoEquipo FROM usuarios U
+		INNER JOIN equipos E ON E.usuarioID = U.usuarioID
+		WHERE  U.usuarioID = @codigo OR E.equipoID = @codigo
+	END
+GO
+
+GO
+CREATE PROCEDURE filtro2
+@codigo int
+AS
+	BEGIN
+		SELECT U.nombre, E.tipoEquipo, R.estado FROM usuarios U
+		INNER JOIN equipos E ON E.usuarioID = U.usuarioID
+		INNER JOIN reparaciones R ON R.equipoID = E.equipoID
+		WHERE U.usuarioID = @codigo OR E.equipoID = @codigo OR  R.reparacionID = @codigo 
+	END
+GO
+
+GO
+CREATE PROCEDURE filtro3
+@codigo int
+AS
+	BEGIN
+		SELECT U.nombre, E.tipoEquipo, R.estado, A.FechaAsignacion FROM usuarios U
+		INNER JOIN equipos E ON E.usuarioID = U.usuarioID
+		INNER JOIN reparaciones R ON R.equipoID = E.equipoID
+		INNER JOIN asignaciones A ON A.reparacionID = R.reparacionID
+		WHERE U.usuarioID = @codigo OR E.equipoID = @codigo OR  R.reparacionID = @codigo OR A.asignacionID = @codigo
+	END
+GO
+
+GO
+CREATE PROCEDURE filtro4
+@codigo int
+AS
+	BEGIN
+		SELECT U.nombre, E.tipoEquipo, R.estado, A.FechaAsignacion,T.nombre FROM usuarios U
+		INNER JOIN equipos E ON E.usuarioID = U.usuarioID
+		INNER JOIN reparaciones R ON R.equipoID = E.equipoID
+		INNER JOIN asignaciones A ON A.reparacionID = R.reparacionID
+		INNER JOIN tecnicos T ON T.tecnicoID = A.tecnicoID
+		WHERE U.usuarioID = @codigo OR T.tecnicoID = @codigo OR E.equipoID = @codigo OR  R.reparacionID = @codigo OR A.asignacionID = @codigo 
+	END
+GO
+
+GO
+CREATE PROCEDURE filtro5
+@codigo int
+AS
+	BEGIN
+		SELECT U.nombre, E.tipoEquipo, R.estado, A.FechaAsignacion,T.nombre, DR.descripcion FROM usuarios U
+		INNER JOIN equipos E ON E.usuarioID = U.usuarioID
+		INNER JOIN reparaciones R ON R.equipoID = E.equipoID
+		INNER JOIN asignaciones A ON A.reparacionID = R.reparacionID
+		INNER JOIN tecnicos T ON T.tecnicoID = A.tecnicoID
+		INNER JOIN detallesReparacion DR on R.reparacionID = DR.reparacionID 
+		WHERE U.usuarioID = @codigo OR T.tecnicoID = @codigo OR E.equipoID = @codigo OR  R.reparacionID = @codigo OR A.asignacionID = @codigo OR  DR.detalleID = @codigo
+	END
+GO
